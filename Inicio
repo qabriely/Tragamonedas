@@ -1,0 +1,16 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class TragamonedasProyect {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        Scanner entrada2 = new Scanner(System.in);
+        Random aleatorio = new Random();
+        String[][] tragamonedas = new String[3][3];
+        ListaCircular rodillo = new ListaCircular();
+        String[] simbolos = {"cereza", "limon", "naranja", "ciruela", "campana"};
+        rodillo = ListaCircular.llenar(simbolos);
+        boolean salir;
+        Double[] costoJugada = {5.0, 10.0, 15.0, 20.0};
+        int tipoJugada;
+        
