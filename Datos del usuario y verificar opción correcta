@@ -1,0 +1,37 @@
+ System.out.println("=== BIENVENIDO A LA MÁQUINA TRAGAMONEDAS ===");
+        System.out.print("Introduce tu nombre: ");
+        String n = entrada.nextLine();
+        System.out.print("Introduce tu cédula: ");
+        String c = entrada.nextLine();
+        System.out.print("Tienes un saldo de 25 monedas para jugar");
+        entrada.nextLine(); // Limpiar el buffer
+        Jugador jugador = new Jugador(n, c);
+
+        salir = false;
+        do {
+            System.out.println("Bienvenido " + jugador.getNombre() + ". Tu saldo actual es: " + jugador.getSaldo());
+            System.out.println("Selecciona el tipo de jugada:");
+            System.out.println("1 - Jugada mínima (5 fichas)");
+            System.out.println("2 - Jugada diagonal principal (10 fichas)");
+            System.out.println("3 - Jugada diagonal secundaria (15 fichas)");
+            System.out.println("4 - Todas las horizontales (20 fichas)");
+            System.out.print("Tu elección: ");
+            tipoJugada = entrada.nextInt();
+            entrada.nextLine();
+
+
+// Opcion correcta
+
+                if (tipoJugada == 1 || tipoJugada == 2 || tipoJugada == 3 || tipoJugada == 4) {
+              
+                if (jugador.getSaldo() < costoJugada[tipoJugada - 1]) {
+          
+                    System.out.println("Tu saldo actual es insuficiente para la jugada, te faltan: " + (costoJugada[tipoJugada - 1] - jugador.getSaldo()));    
+                } else {
+                   jugador.setSaldo(jugador.getSaldo() - costoJugada[tipoJugada - 1]); // descontar el costo de la jugada
+                
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                                tragamonedas[j][i] = rodillo.getValor(aleatorio.nextInt(5));
+                        }
+                    }
